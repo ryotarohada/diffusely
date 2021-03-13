@@ -21,6 +21,7 @@
   "devDependencies": {
     "css-loader": "^5.0.2",
     "debugutils.js": "^1.0.0",
+    "diffusely": "^1.0.0",
     "file-loader": "^6.2.0",
     "greyview": "^1.0.8",
     "html-loader": "^2.1.0",

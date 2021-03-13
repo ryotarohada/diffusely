@@ -4,9 +4,7 @@
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
-  "scripts": {
-    "prepare": "tsc"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ryotarohada/diffusely.git"
