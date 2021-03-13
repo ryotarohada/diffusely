@@ -1,0 +1,39 @@
+{
+  "name": "greyview-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyoVilleC7/greyview.git"
+  },
+  "keywords": [],
+  "author": "ryotarohada <ryotarohada@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyoVilleC7/greyview/issues"
+  },
+  "homepage": "https://github.com/RyoVilleC7/greyview#readme",
+  "devDependencies": {
+    "css-loader": "^5.0.2",
+    "debugutils.js": "^1.0.0",
+    "file-loader": "^6.2.0",
+    "greyview": "^1.0.8",
+    "html-loader": "^2.1.0",
+    "html-webpack-plugin": "^5.2.0",
+    "mini-css-extract-plugin": "^1.3.8",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.1.5",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.24.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {}
+}

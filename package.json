@@ -1,0 +1,24 @@
+{
+  "name": "diffusely",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "prepare": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryotarohada/diffusely.git"
+  },
+  "keywords": [],
+  "author": "ryotarohada <ryotarohada@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryotarohada/diffusely/issues"
+  },
+  "homepage": "https://github.com/ryotarohada/diffusely#readme",
+  "dependencies": {
+    "typescript": "^4.2.2"
+  }
+}
