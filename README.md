@@ -1,5 +1,5 @@
 # Diffusely.js
-GrayView.js is a library for executing scripts according to each web page.
+Diffusely.js is a library for executing scripts according to each web page.
 
 ## install
 `$ npm install diffusely`
