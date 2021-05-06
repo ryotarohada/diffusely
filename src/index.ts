@@ -1,27 +1,51 @@
 export interface options {
   observation?: boolean;
+  entryPoint?: any;
 }
 
 export default class Diffusely {
-  private _body: Element | null = null;
+  private _root: Element | null = null;
   private _pageName: string | null = null;
+  private _options: options | null = null;
   public pathMap: any;
 
   constructor(options?: options) {
-    console.log(`[message] - diffusely.setup...🕸`);
+    console.log(`[message] - diffusely.setup...🏃‍♂️`);
     this.init(options);
   }
 
   // 初期化
   private init(options?: options): void {
 
-      // Body要素とpage-name属性を取得
-      this._body = document.body;
-      this._pageName = this._body.getAttribute("data-page-name");
+    // オプションがオブジェクトかチェック
+    if (typeof options === "object") {
+      this._options = options;
+    };
 
-      if (this._body.nodeType !== 1) {
+    // entryPoint option
+    if (this._options?.entryPoint) {
+
+      const isElement = (node: any) => {
+        return !!(node && (node.nodeName || (node.prop && node.attr && node.find)));
+      };
+
+      if (!isElement(options?.entryPoint)) {
+        throw new Error("options.entryPointに渡す値はHTML要素である必要があります。");
+      };
+
+      this._root = this._options.entryPoint;
+
+    }
+
+      // Body要素とpage-name属性を取得
+      if (!this._root) this._root = document.body;
+      this._pageName = this._root.getAttribute("data-page-name");
+
+      /*
+      if (this._root.nodeType !== 1) {
         throw new Error("body要素の取得に失敗しました。");
-      }
+      };
+      */
 
       if (!this._pageName || typeof this._pageName !== "string" || this._pageName === "") {
         throw new Error("data-page-nameに値をセットする必要があります。" + "または" + "body要素にdata-page-nameをセットする必要があります。");
@@ -29,12 +53,9 @@ export default class Diffusely {
 
       // pathMap用のオブジェクトを生成
       this.pathMap = new Object();
-
-      // オプション
-      if (typeof options === "object") {
         
-        // observationオプションがtrueの場合有効化
-        if (options.observation) {
+        // observation option
+        if (this._options?.observation) {
             console.log('[message] - starting observe.');
   
             // body要素の変更を監視
@@ -43,7 +64,7 @@ export default class Diffusely {
                 // page-name属性が変更された場合のみ動作（このif文いらない気がするけど一応お守り）
                 if (mutations[0].type === 'attributes') {
                     console.log('[message] - data-page-name属性の変更を検知しました、diffuselyを再起動します');
-                    this._pageName = this._body!.getAttribute("data-page-name");
+                    this._pageName = this._root!.getAttribute("data-page-name");
                     this.start();
                 }
             });
@@ -56,17 +77,16 @@ export default class Diffusely {
             };
     
             // body要素とオブザーバーの設定を渡す
-            observer.observe(this._body, config);
+            observer.observe(this._root, config);
         }
-      }
   }
 
   // pageNameに応じた関数を格納
   public createPathMap(map: string[]): void {
     for (let i = 0; i < map.length; i++) {
-      this.pathMap[map[i]] = "";
+      this.pathMap[map[i]] = "a";
     }
-    this.pathMap["common"] = ""
+    this.pathMap["common"] = "";
   }
 
   // DOM上のpageNameに該当する関数を動作させる

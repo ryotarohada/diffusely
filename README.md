@@ -1,5 +1,5 @@
 # Diffusely.js
-GrayView.js is a library for executing scripts according to each web page.
+Diffusely.js is a library for executing scripts according to each web page.
 
 ## install
 `$ npm install diffusely`
@@ -11,7 +11,7 @@ Add the data-page-name attribute to the body tag of the page where you want to e
 ```html
 <body data-page-name="page">
 ```
-Then create an instance of the GrayView class.
+Then create an instance of the diffusely class.
 ```JavaScript
 const diffusely = new Diffusely();
 ```
@@ -36,17 +36,17 @@ diffusely.pathMap.common = () => {
     console.log('foo');
 }
 ```
-Finally, execute start () to get GrayView to work.
+Finally, execute start () to get Diffusely to work.
 ```JavaScript
 diffusely.start();
 ```
 
 ## options
-GrayView can use the option by specifying the object as an argument.
+Diffusely.js can use the option by specifying the object as an argument.
 (Currently there is only one option, we plan to add it in the future.)
 
 ### observation
-If the value of data-page-name is rewritten, execute grayview again and Execute the script according to the value of data-page-name after rewriting.
+If the value of data-page-name is rewritten, execute diffusely again and Execute the script according to the value of data-page-name after rewriting.
 
 ```JavaScript
   observation: boolean
